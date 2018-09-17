@@ -1,0 +1,13 @@
+#app {
+    margin: 24px;
+    font-family: monospace;
+}
+
+.typeahead input {
+    font-size: xx-large;
+    width: 80%;
+}
+
+.typeahead .suggestions {
+    margin-top: 8px;
+}
