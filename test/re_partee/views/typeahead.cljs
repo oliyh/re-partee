@@ -4,13 +4,19 @@
 
 (defcard-rg typeahead
   [:div
-   [:h4 "Initial state"]
+   [:h1 [:i "Initial state"]]
    [typeahead-component {}]
 
-   [:h4 "Loading suggestions"]
+   [:h1 [:i "Loading suggestions"]]
    [typeahead-component {:query "Matching query"
-                         :suggestions nil}]
+                         :suggestions {:loading? true}}]
 
-   [:h4 "Some suggestions"]
+   [:h1 [:i "Some suggestions"]]
    [typeahead-component {:query "Matching query"
-                         :suggestions ["Foo" "Bar" "Baz"]}]])
+                         :suggestions {:loading? false
+                                       :suggestions ["Foo" "Bar" "Baz"]}}]
+
+   [:h1 [:i "No suggestions"]]
+   [typeahead-component {:query "Matching query"
+                         :suggestions {:loading? false
+                                       :suggestions []}}]])

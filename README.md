@@ -10,4 +10,4 @@ How I like to structure cljs apps
 
 App: http://localhost:9500/
 Tests: http://localhost:9500/figwheel-extra-main/auto-testing
-Devcards: http://localhost:9500/figwheel-extra-main/cards
+Devcards: http://localhost:9500/cards.html

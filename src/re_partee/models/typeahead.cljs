@@ -6,16 +6,24 @@
 (re-frame/reg-event-db
  ::on-suggestions
  (fn [db [_ suggestions]]
-   (assoc-in db [:typeahead :suggestions] suggestions)))
+   (assoc-in db [:typeahead :suggestions] {:loading? false
+                                           :suggestions suggestions})))
 
 (re-frame/reg-event-fx
  ::on-query
  (fn [{:keys [db]} [_ q]]
    (merge
-    {:db (assoc-in db [:typeahead :query] q)}
+    {:db (-> db
+             (assoc-in [:typeahead :query] q)
+             (assoc-in [:typeahead :suggestions] {:loading? true}))}
     (if (string/blank? q)
       {:dispatch [::on-suggestions []]}
       {:dispatch [::server/fetch-suggestions q [::on-suggestions]]}))))
+
+(re-frame/reg-event-db
+ ::on-choose
+ (fn [db [_ suggestion]]
+   (assoc-in db [:typeahead] {:query suggestion})))
 
 (re-frame/reg-sub
  ::suggestions
