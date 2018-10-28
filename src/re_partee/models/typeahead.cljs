@@ -11,11 +11,13 @@
 (re-frame/reg-event-fx
  ::on-query
  (fn [{:keys [db]} [_ q]]
+   (js/console.log "Querying for" q)
    (merge
     {:db (assoc-in db [:typeahead :query] q)}
     (if (string/blank? q)
       {:dispatch [::on-suggestions []]}
-      {:dispatch [::server/fetch-suggestions q [::on-suggestions]]}))))
+      (do (js/console.log "Going to ask the server for " q)
+        {:dispatch [::server/fetch-suggestions q [::on-suggestions]]})))))
 
 (re-frame/reg-sub
  ::suggestions
@@ -27,4 +29,11 @@
  (fn [db [_ query]]
    (get-in db [:typeahead :query])))
 
-@re-frame.db/app-db
+(re-frame/reg-sub
+ ::typeahead
+ (fn []
+   [(re-frame/subscribe [::query])
+    (re-frame/subscribe [::suggestions])])
+ (fn [[query suggestions]]
+   {:query query
+    :suggestions suggestions}))
