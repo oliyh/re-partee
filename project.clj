@@ -22,7 +22,9 @@
                                   [com.bhauman/rebel-readline-cljs "0.1.4"]
                                   [binaryage/devtools "0.8.3"]
                                   [devcards "0.2.6"]
-                                  [day8.re-frame/test "0.1.5"]]
+                                  [day8.re-frame/test "0.1.5"]
+                                  [org.clojure/spec.alpha "0.2.176"]
+                                  [org.clojure/test.check "0.10.0-alpha3"]]
                    :source-paths ["dev"]
                    :resource-paths ["target"]
                    ;; need to add the compliled assets to the :clean-targets
