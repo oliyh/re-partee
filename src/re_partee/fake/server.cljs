@@ -7,7 +7,6 @@
 (re-frame/reg-event-fx
  ::fetch-suggestions
  (fn [_ [_ q callback]]
-   (js/console.log "Oh!" q callback)
    (js/setTimeout
     (fn []
       (re-frame/dispatch

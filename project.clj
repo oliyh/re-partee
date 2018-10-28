@@ -8,7 +8,7 @@
 
   :dependencies [[org.clojure/clojure "1.10.0-alpha6"]
                  [org.clojure/clojurescript "1.10.339"]
-                 [re-frame "0.10.5"]
+                 [re-frame "0.10.6"]
                  [reagent "0.8.1"]]
 
   :source-paths ["src"]
@@ -22,7 +22,7 @@
                                   [com.bhauman/rebel-readline-cljs "0.1.4"]
                                   [binaryage/devtools "0.8.3"]
                                   [devcards "0.2.6"]
-                                  [day8.re-frame/test "0.1.3"]]
+                                  [day8.re-frame/test "0.1.5"]]
                    :source-paths ["dev"]
                    :resource-paths ["target"]
                    ;; need to add the compliled assets to the :clean-targets
