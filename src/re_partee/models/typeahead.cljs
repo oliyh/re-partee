@@ -7,7 +7,7 @@
  ::on-suggestions
  (fn [db [_ suggestions]]
    (assoc-in db [:typeahead :suggestions] {:loading? false
-                                           :suggestions suggestions})))
+                                           :values suggestions})))
 
 (re-frame/reg-event-fx
  ::on-query
