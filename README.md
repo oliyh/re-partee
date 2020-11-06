@@ -1,6 +1,6 @@
 # re-partee
 
-How I like to structure cljs apps
+How I like to structure cljs apps. Rationale explained at https://juxt.pro/blog/cljs-apps
 
 ### Emacs
 `M-x cider-jack-in-clojurescript`
